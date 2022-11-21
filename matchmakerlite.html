@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html> 
+By Marwan Aljubori
+project: MatchMaker
+</head>
+<title>Matchmaker</title>
+</head>
+<body>
+<h1>Matchmaker</h1>
+<p>Find True Love Using Matchmaker</p>
+
+<label>
+    Chicago Is The best City!!!!
+</label>
+<br>
+
+<section id= "q1">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neither</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strongly Disagree</option>
+</section>
+<br /><br />
+
+<label> Thanksgiving is the best day!!!</label><br />
+<section id= "q2">
+    <option value="5">Strongly Agree</option>
+    <option value="4">Agree</option>
+    <option value="3">Neither</option>
+    <option value="2">Disagree</option>
+    <option value="1">Strongly Disagree</option>
+</section>
+<br /><br/>
+
+<label> Ice Coffee is the best  !!! </label><br />
+
+ <section id= "q3">
+     <option value="5">Strongly Agree</option>
+     <option value="4">Agree</option>
+     <option value="3">Neither</option>
+     <option value="2">Disagree</option>
+     <option value="1">Strongly Disagree</option>
+ </section>
+ <br /><br/>
+
+
+ <label>  we all love soccer  !!! </label><br />
+ 
+ <section id= "q4">
+     <option value="5">Strongly Agree</option>
+     <option value="4">Agree</option>
+     <option value="3">Neither</option>
+     <option value="2">Disagree</option>
+     <option value="1">Strongly Disagree</option>
+ </section>
+ <br /><br/>
+
+ <label> computer science is the easiest subject  !!!</label><br />
+ 
+ <section id= "q5">
+     <option value="5">Strongly Agree</option>
+     <option value="4">Agree</option>
+     <option value="3">Neither</option>
+     <option value="2">Disagree</option>
+     <option value="1">Strongly Disagree</option>
+ </section>
+ <br><br>
+
+ <br /><br /><br/>
+    <p id="compatibility"></p>
+
+
+<script
+    console . log("starting MatchMaker");
+
+    function calculateCompatibility() {
+        const preferedAnswers=[5,3,5,4,2]
+        console.log('Calculating love')
+        console.compatibilityValue1= document .getElementById("q1").selectedOption[0].value;
+        console.compatibilityValue2= document .getElementById("q2").selectedOption[0].value;
+        console.compatibilityValue3= document .getElementById("q3").selectedOption[0].value;
+        console .log(compatibilityValue3)
+        function calculateCompatibility() {
+            console.log("calculateCompatibility()");
+        
+            const DESIRED_RESPONSE = [
+                5, /* strongly agree */
+                2, /* disagree */
+                1, /* strongly disagree */
+            ]
+        
+            const MAX_SCORE = 15;
+        
+            // Get the current values of the dropdown controls.
+            let question1Response = document.getElementById("q1").selectedOptions[0].value;
+            let question2Response = document.getElementById("q2").selectedOptions[0].value;
+            let question3Response = document.getElementById("q3").selectedOptions[0].value;
+            let question4Response = document.getElementById("q4").selectedOptions[0].value;
+            let question5Response = document.getElementById("q5").selectedOptions[0].value;
+        
+            // Optionally log the values associated with question 1 through 3 to the console. 
+            console.log("Question 1 Answers:")
+            console.log(document.getElementById("q1").selectedOptions[0].text);
+            console.log(document.getElementById("q1").selectedOptions[0].value);
+            console.log(question1Response);
+        
+            console.log("Question 2 Answers:");
+            console.log(document.getElementById("q2").selectedOptions[0].text);
+            console.log(document.getElementById("q2").selectedOptions[0].value);
+            console.log(question2Response);
+        
+            console.log("Question 3 Answers:");
+            console.log(document.getElementById("q3").selectedOptions[0].text);
+            console.log(document.getElementById("q3").selectedOptions[0].value);
+            console.log(question2Response);
+        
+            // Todo: Calculate compatibility scores.
+            let question1Compatibility = 5 - Math.abs(question1Response - DESIRED_RESPONSE[0]);
+            let question2Compatibility = 5 - Math.abs(question2Response - DESIRED_RESPONSE[1]);
+            let question3Compatibility = 5 - Math.abs(question3Response - DESIRED_RESPONSE[2]);
+        
+            console.log("c1="+question1Compatibility);
+            console.log("c2="+question2Compatibility);
+            console.log("c3="+question3Compatibility);
+        
+            // Calculate total compatibility. 
+            let totalCompatibility = question1Compatibility + question2Compatibility + question3Compatibility;
+        
+            // Convert totalCompatibility to a percentage.
+            totalCompatibility *= 100 / MAX_SCORE;
+            totalCompatibility = Math.round(totalCompatibility);
+            console.log("tc="+ totalCompatibility);
+        
+            document.getElementById("compatibility").innerHTML = "Your compatibility is: " + totalCompatibility;
+        }
+        
